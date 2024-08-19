@@ -5,16 +5,16 @@ const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 
 root.render(
-  restaurants.map(r => {
-    return <div key={r.id}>
-      <h1>{`${r.name}`}</h1>
+  restaurants.map(restaurant => {
+    return <div key={restaurant.id}>
+      <h2>{`${restaurant.name}`}</h2>
 
       <h3>Меню</h3>
       <ul>
         {
-          r.menu.map(m => {
-            return <li key={m.id}>
-              {m.name}
+          restaurant.menu.map(menu => {
+            return <li key={menu.id}>
+              {menu.name}
             </li>
           })
         }
@@ -23,9 +23,9 @@ root.render(
       <h3>Отзывы</h3>
       <ul>
         {
-          r.reviews.map(rv => {
-            return <li key={rv.id}>
-              {rv.text}
+          restaurant.reviews.map(review => {
+            return <li key={review.id}>
+              {review.text}
             </li>
           })
         }
