@@ -1,11 +1,11 @@
-import { Counter } from "../../../couner/counter";
+import { Counter } from "../../../../couner/counter";
 
 export const Dish = ({ dish }) => {
   return (
-    <li>
+    <>
       {dish.name}
 
       <Counter />
-    </li>
+    </>
   );
 };
