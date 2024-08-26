@@ -1,20 +1,11 @@
-import { useCounter } from "./use-counter";
-
-export const Counter = ({ max, min, onChange, value }) => {
-  const { decrement, increment, currentValue } = useCounter({
-    initialValue: value,
-    max,
-    min,
-    onChange,
-  });
-
+export const Counter = ({ onDecrement, onIncrement, value }) => {
   return (
     <>
-      <button onClick={decrement}>-</button>
+      <button onClick={onDecrement}>-</button>
 
-      {currentValue}
+      {value}
 
-      <button onClick={increment}>+</button>
+      <button onClick={onIncrement}>+</button>
     </>
   );
 };

@@ -1,11 +1,14 @@
 import { Counter } from "../../../../couner/counter";
+import { useCounter } from "../../../../couner/use-counter";
 
 export const Dish = ({ dish }) => {
+  const { decrement, increment, value } = useCounter(0, 0, 5);
+
   return (
     <>
       {dish.name}
 
-      <Counter initialValue={0} max={5} min={0} />
+      <Counter onDecrement={decrement} onIncrement={increment} value={value} />
     </>
   );
 };

@@ -3,7 +3,8 @@ import { TextInput } from "../../../../text-input/text-input";
 import { useReviewForm } from "./use-review-from";
 
 export const ReviewForm = () => {
-  const { clear, form, setName, setRating, setText } = useReviewForm();
+  const { clear, decrementRating, form, incrementRating, setName, setText } =
+    useReviewForm();
   const { name, rating, text } = form;
 
   return (
@@ -15,7 +16,11 @@ export const ReviewForm = () => {
       <div>
         <span>Рейтинг</span>
 
-        <Counter max={5} min={1} onChange={setRating} value={rating} />
+        <Counter
+          onDecrement={decrementRating}
+          onIncrement={incrementRating}
+          value={rating}
+        />
       </div>
 
       <button onClick={clear}>Clear</button>

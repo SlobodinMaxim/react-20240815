@@ -12,8 +12,10 @@ const reducer = (state, { payload, type }) => {
       return { ...state, name: payload.target.value };
     case `SET_TEXT`:
       return { ...state, text: payload.target.value };
-    case `SET_RATING`:
-      return { ...state, rating: payload };
+    case `DECREMENT_RATING`:
+      return { ...state, rating: Math.max(1, state.rating - 1) };
+    case `INCREMENT_RATING`:
+      return { ...state, rating: Math.min(state.rating + 1, 5) };
     case `CLEAR`:
       return { ...DEFAULT_VALUE };
     default:
@@ -24,18 +26,20 @@ const reducer = (state, { payload, type }) => {
 export const useReviewForm = () => {
   const [form, dispatch] = useReducer(reducer, DEFAULT_VALUE);
 
-  const clear = useCallback(
-    (payload) => dispatch({ payload, type: `CLEAR` }),
+  const clear = useCallback(() => dispatch({ type: `CLEAR` }), []);
+
+  const decrementRating = useCallback(
+    () => dispatch({ type: `DECREMENT_RATING` }),
+    []
+  );
+
+  const incrementRating = useCallback(
+    () => dispatch({ type: `INCREMENT_RATING` }),
     []
   );
 
   const setName = useCallback(
-    (payload) => dispatch({ payload, type: `SET_NAME` }),
-    []
-  );
-
-  const setRating = useCallback(
-    (payload) => dispatch({ payload, type: `SET_RATING` }),
+    (event) => dispatch({ payload: event, type: `SET_NAME` }),
     []
   );
 
@@ -46,9 +50,10 @@ export const useReviewForm = () => {
 
   return {
     clear,
+    decrementRating,
     form,
+    incrementRating,
     setName,
-    setRating,
     setText,
   };
 };

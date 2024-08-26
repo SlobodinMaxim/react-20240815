@@ -1,35 +1,29 @@
 import { useState } from "react";
 import { useEffect } from "react";
 
+import styles from "./progress-bar.module.css";
+
 export const ProgressBar = () => {
   const [width, setWidth] = useState(0);
 
   useEffect(() => {
-    const scrollListener = (event) => {
+    const listener = (event) => {
       const y = window.scrollY;
-      const height =
-        Math.max(
-          document.body.clientHeight,
-          document.body.offsetHeight,
-          document.body.scrollHeight,
-          document.documentElement.clientHeight,
-          document.documentElement.offsetHeight,
-          document.documentElement.scrollHeight
-        ) - window.innerHeight;
+      const height = document.documentElement.scrollHeight - window.innerHeight;
       const ratio = y / height;
-      const width = document.documentElement.clientWidth * ratio;
+      const width = Math.floor(document.documentElement.clientWidth * ratio);
 
       setWidth(width);
     };
 
-    window.addEventListener(`resize`, scrollListener);
-    window.addEventListener(`scroll`, scrollListener);
+    window.addEventListener(`resize`, listener);
+    window.addEventListener(`scroll`, listener);
 
     return () => {
-      window.removeEventListener(`resize`, scrollListener);
-      window.removeEventListener(`scroll`, scrollListener);
+      window.removeEventListener(`resize`, listener);
+      window.removeEventListener(`scroll`, listener);
     };
   }, []);
 
-  return <div className="progress-bar" style={{ width: width }}></div>;
+  return <div className={styles.root} style={{ width: width }}></div>;
 };

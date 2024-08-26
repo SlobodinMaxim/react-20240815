@@ -1,4 +1,4 @@
-import { ReviewForm } from "./review-form/review-from";
+import { ReviewForm } from "./review-form/review-form";
 
 export const Reviews = ({ reviews }) => {
   return (
