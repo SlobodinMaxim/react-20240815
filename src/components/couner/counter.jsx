@@ -1,19 +1,20 @@
-import { useState } from "react";
+import { useCounter } from "./use-counter";
 
-export const Counter = () => {
-  const [value, setValue] = useState(0);
-
-  const validateValue = (value) => {
-    return Math.min(5, Math.max(0, value));
-  };
+export const Counter = ({ max, min, onChange, value }) => {
+  const { decrement, increment, currentValue } = useCounter({
+    initialValue: value,
+    max,
+    min,
+    onChange,
+  });
 
   return (
     <>
-      <button onClick={() => setValue(validateValue(value - 1))}>-</button>
+      <button onClick={decrement}>-</button>
 
-      {value}
+      {currentValue}
 
-      <button onClick={() => setValue(validateValue(value + 1))}>+</button>
+      <button onClick={increment}>+</button>
     </>
   );
 };

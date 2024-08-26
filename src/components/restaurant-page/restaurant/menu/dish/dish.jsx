@@ -5,7 +5,7 @@ export const Dish = ({ dish }) => {
     <>
       {dish.name}
 
-      <Counter />
+      <Counter initialValue={0} max={5} min={0} />
     </>
   );
 };
