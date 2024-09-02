@@ -1,9 +1,9 @@
 import { Button } from "../button/button";
-import { useUser } from "../user-context/use-user";
+import { useAuthorization } from "../authorization-context/use-authorization";
 import styles from "./login-widget.module.css";
 
 export const LoginWidget = () => {
-  const { user, login, logout } = useUser();
+  const { user, login, logout } = useAuthorization();
   const { isAuthorized, username } = user;
 
   const loginForm = (

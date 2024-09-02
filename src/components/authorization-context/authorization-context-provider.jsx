@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { UserContext } from "./user-context";
+import { AuthorizationContext } from "./authorization-context";
 
 const DEFAULT_VALUE = { isAuthorized: false };
 
-export const UserContextProvider = ({ children }) => {
+export const AuthorizationContextProvider = ({ children }) => {
   const [user, setUser] = useState(DEFAULT_VALUE);
 
   const login = () => {
@@ -18,8 +18,8 @@ export const UserContextProvider = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider value={{ user, login, logout }}>
+    <AuthorizationContext.Provider value={{ user, login, logout }}>
       {children}
-    </UserContext.Provider>
+    </AuthorizationContext.Provider>
   );
 };
