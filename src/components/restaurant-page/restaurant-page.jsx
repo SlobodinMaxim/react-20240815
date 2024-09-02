@@ -2,7 +2,6 @@ import { useState } from "react";
 import { restaurants } from "../../../materials/mock.js";
 import { Restaurant } from "./restaurant/restaurant.jsx";
 import { Tab } from "../tab/tab.jsx";
-
 import styles from "./restaurant-page.module.css";
 
 export const RestaurantPage = () => {

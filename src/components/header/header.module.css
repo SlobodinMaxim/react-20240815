@@ -1,4 +1,10 @@
 .root {
     background-color: #B9D9EB;
     padding: 5px;
+    position: relative;
+}
+
+.themeButtons {
+    position: absolute;
+    right: 0;
 }
