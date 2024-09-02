@@ -1,0 +1,9 @@
+.root {
+    align-items: center;
+    background-color: #B9D9EB;
+    border-radius: 15px;
+    display: flex;
+    height: 30px;
+    justify-content: space-between;
+    width: 90px;
+}
