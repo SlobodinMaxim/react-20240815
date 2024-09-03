@@ -1,52 +1,77 @@
-.root {
-    background-color: #B9D9EB;
+.button {
     border: unset;
     border-radius: 5px;
     padding: 5px 15px;
+    height: 30px;
 }
 
-.root:focus {
-    background-color: #B9D9EB;
-}
-
-.root:hover {
-    background-color: #007FFF;
-    color: #B9D9EB;
-}
-
-.root:active {
-    background-color: #003262;
-    color: #B9D9EB;
-}
-
-.root:disabled {
-    background-color: #E5E4E2;
-    color: #003262;
-}
-
-.root-close {
-    align-items: center;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    height: 20px;
-    padding: 0;
-    width: 20px;
-}
-
-.root-counter {
+.close {
     align-items: center;
     border-radius: 15px;
     display: flex;
     justify-content: center;
-    height: 30px;
     padding: 0;
     width: 30px;
 }
 
-.root-tab {
-    border-radius: 10px 10px 0 0;
-    font-size: 20px;
-    height: 50px;
-    width: 150px;
+.counter {
+    align-items: center;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    width: 30px;
+}
+
+.tab {
+    border-radius: 5px 5px 0 0;
+}
+
+.light {
+    background-color: #B9D9EB;
+}
+
+.light:focus {
+    background-color: #B9D9EB;
+}
+
+.light:hover {
+    background-color: #007FFF;
+    color: #B9D9EB;
+}
+
+.light:active {
+    background-color: #003262;
+    color: #B9D9EB;
+}
+
+.light:disabled {
+    background-color: #E5E4E2;
+    color: #003262;
+}
+
+.dark {
+    background-color: #003262;
+    color: #B9D9EB;
+}
+
+.dark:focus {
+    background-color: #003262;
+    color: #B9D9EB;
+}
+
+.dark:hover {
+    background-color: #007FFF;
+    color: #B9D9EB;
+}
+
+.dark:active {
+    background-color: #B9D9EB;
+    color: #003262;
+
+}
+
+.dark:disabled {
+    background-color: #708090;
+    color: #B9D9EB;
 }

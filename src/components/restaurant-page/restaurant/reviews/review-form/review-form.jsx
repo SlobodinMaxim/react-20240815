@@ -4,18 +4,15 @@ import { useReviewForm } from "./use-review-from";
 
 import styles from "./review-form.module.css";
 import { CounterLine } from "../../../../counter-line/counter-line";
-import { useState } from "react";
 
-export const ReviewForm = () => {
+export const ReviewForm = ({ showFormState }) => {
+  const [neewShowForm, setNeedShowForm] = showFormState;
   const { clear, decrementRating, form, incrementRating, setName, setText } =
     useReviewForm();
+
   const { name, rating, text } = form;
 
-  const [isClosed, setIsClosed] = useState(false);
-
-  return isClosed ? (
-    <></>
-  ) : (
+  return neewShowForm ? (
     <>
       <div className={styles.container}>
         <div className={styles.form}>
@@ -24,7 +21,7 @@ export const ReviewForm = () => {
             <Button
               className={styles.close}
               displayType="close"
-              onClick={() => setIsClosed(true)}
+              onClick={() => setNeedShowForm(false)}
             >
               x
             </Button>
@@ -60,5 +57,7 @@ export const ReviewForm = () => {
         </div>
       </div>
     </>
+  ) : (
+    <></>
   );
 };

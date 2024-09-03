@@ -1,16 +1,22 @@
-.root {
+.layout {
     display: grid;
-    grid-template-rows: 100px auto 50px;
+    grid-template-areas:
+        "header header header"
+        ". body ."
+        "footer footer footer";
+    grid-template-columns: auto max(500px, 60%) auto;
+    grid-template-rows: 100px calc(100% - 150px) 50px;
     height: 100%;
 }
 
-.test1 {
-    display: grid;
-    grid-row: 2/2;
-    grid-template-columns: auto 650px auto;
-    height: 100%;
+.header {
+    grid-area: header;
 }
 
-.test2 {
-    grid-column: 2/2;
+.body {
+    grid-area: body;
+}
+
+.footer {
+    grid-area: footer;
 }

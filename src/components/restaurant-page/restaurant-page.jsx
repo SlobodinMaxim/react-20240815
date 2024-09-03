@@ -2,14 +2,13 @@ import { useState } from "react";
 import { restaurants } from "../../../materials/mock.js";
 import { Restaurant } from "./restaurant/restaurant.jsx";
 import { Tab } from "../tab/tab.jsx";
-
 import styles from "./restaurant-page.module.css";
 
 export const RestaurantPage = () => {
   const [activeRestaurant, setActiveRestaurant] = useState(restaurants[0]);
 
   return (
-    <div className={styles.root}>
+    <div className={styles.restaurant_page}>
       {restaurants.map((restaurant) => (
         <Tab
           disabled={restaurant === activeRestaurant}
