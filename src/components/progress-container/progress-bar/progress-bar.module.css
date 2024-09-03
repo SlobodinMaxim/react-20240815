@@ -1,7 +1,7 @@
-.root {
-    background-color: #DC2626;
-    height: 10px;
+.progress_bar {
+    background-color: #FFBF00;
+    height: 5px;
     left: 0;
-    position: fixed;
+    position: absolute;
     top: 0;
 }
