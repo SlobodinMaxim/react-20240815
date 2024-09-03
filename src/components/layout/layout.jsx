@@ -1,17 +1,21 @@
 import { Footer } from "../footer/footer";
 import { Header } from "../header/header";
-import { ProgressBar } from "../progress-bar/progress-bar";
+import { ProgressContainer } from "../progress-container/progress-container";
+
+import styles from "./layout.module.css";
 
 export const Layout = ({ children }) => {
   return (
-    <>
-      <ProgressBar />
-
+    <div className={styles.root}>
       <Header />
 
-      {children}
+      <div className={styles.test1}>
+        <ProgressContainer className={styles.test2}>
+          {children}
+        </ProgressContainer>
+      </div>
 
       <Footer />
-    </>
+    </div>
   );
 };

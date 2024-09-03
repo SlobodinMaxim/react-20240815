@@ -1,0 +1,8 @@
+.root {
+    align-items: center;
+    display: flex;
+}
+
+.title {
+    width: 100px;
+}
