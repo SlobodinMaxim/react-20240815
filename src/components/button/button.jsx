@@ -15,7 +15,7 @@ export const Button = ({
     <button
       className={classNames(
         className,
-        styles[`root`],
+        styles.button,
         styles[displayType],
         styles[theme]
       )}

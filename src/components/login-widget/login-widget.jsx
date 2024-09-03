@@ -7,13 +7,13 @@ export const LoginWidget = () => {
   const { isAuthorized, username } = user;
 
   const loginForm = (
-    <div className={styles.root}>
+    <div className={styles.login_widget}>
       <Button onClick={login}>Войти</Button>
     </div>
   );
 
   const logoutForm = (
-    <div className={styles.root}>
+    <div className={styles.login_widget}>
       <span>{username}</span>
       <Button onClick={logout}>Выйти</Button>
     </div>

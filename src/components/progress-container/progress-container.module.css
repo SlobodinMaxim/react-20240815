@@ -1,4 +1,4 @@
-.root {
+.progress_container {
     height: 100%;
-    overflow: auto;
+    position: relative;
 }
