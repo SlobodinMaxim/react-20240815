@@ -16,9 +16,13 @@ export const ProgressBar = ({ bodyRef }) => {
     const listener = (event) => {
       const y = body.scrollTop;
       const height = body.scrollHeight - body.clientHeight;
+      if (y === 0 || height === 0) {
+        setWidth(0);
+        return;
+      }
+
       const ratio = y / height;
-      const width = Math.floor(body.clientWidth * ratio);
-      setWidth(width);
+      setWidth(Math.floor(body.clientWidth * ratio));
     };
 
     window.addEventListener(`resize`, listener);
@@ -30,5 +34,5 @@ export const ProgressBar = ({ bodyRef }) => {
     };
   }, []);
 
-  return <div className={styles.progress_bar} style={{ width: width }}></div>;
+  return <div className={styles.progress_bar} style={{ width }}></div>;
 };

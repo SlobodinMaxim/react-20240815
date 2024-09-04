@@ -1,24 +1,26 @@
 import { useState } from "react";
-import { restaurants } from "../../../materials/mock.js";
 import { Restaurant } from "./restaurant/restaurant.jsx";
-import { Tab } from "../tab/tab.jsx";
 import styles from "./restaurant-page.module.css";
+import { useSelector } from "react-redux";
+import { selectRestaurantIds } from "../../redux/entities/restaurants/index.js";
+import { RestaurantTab } from "./restaurant-tab/restaurant-tab.jsx";
 
 export const RestaurantPage = () => {
-  const [activeRestaurant, setActiveRestaurant] = useState(restaurants[0]);
+  const ids = useSelector(selectRestaurantIds);
+  const [activeId, setActiveId] = useState(ids[0]);
 
   return (
     <div className={styles.restaurant_page}>
-      {restaurants.map((restaurant) => (
-        <Tab
-          disabled={restaurant === activeRestaurant}
-          key={restaurant.id}
-          name={restaurant.name}
-          onClick={() => setActiveRestaurant(restaurant)}
+      {ids.map((id) => (
+        <RestaurantTab
+          activated={id === activeId}
+          id={id}
+          key={id}
+          onClick={() => setActiveId(id)}
         />
       ))}
 
-      <Restaurant restaurant={activeRestaurant} />
+      <Restaurant id={activeId} />
     </div>
   );
 };

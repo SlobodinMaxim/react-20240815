@@ -3,8 +3,9 @@ import { Button } from "../../../button/button";
 import { ReviewForm } from "./review-form/review-form";
 import styles from "./reviews.module.css";
 import { useAuthorization } from "../../../authorization-context/use-authorization";
+import { Review } from "./review/review";
 
-export const Reviews = ({ reviews }) => {
+export const Reviews = ({ reviewIds }) => {
   const showFormState = useState(false);
   const [needShowForm, setNeedShowForm] = showFormState;
   const { user } = useAuthorization();
@@ -15,9 +16,9 @@ export const Reviews = ({ reviews }) => {
       <h3>Отзывы</h3>
 
       <ul className={styles.list}>
-        {reviews.map((review) => (
-          <li className={styles.item} key={review.id}>
-            {review.text}
+        {reviewIds.map((id) => (
+          <li className={styles.item} key={id}>
+            <Review id={id} />
           </li>
         ))}
       </ul>
