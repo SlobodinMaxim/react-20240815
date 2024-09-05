@@ -6,21 +6,23 @@ import { selectRestaurantIds } from "../../redux/entities/restaurants/index.js";
 import { RestaurantTab } from "./restaurant-tab/restaurant-tab.jsx";
 
 export const RestaurantPage = () => {
-  const ids = useSelector(selectRestaurantIds);
-  const [activeId, setActiveId] = useState(ids[0]);
+  const restaurantIds = useSelector(selectRestaurantIds);
+  const [activeRestaurantId, setActiveRestaurantId] = useState(
+    restaurantIds[0]
+  );
 
   return (
     <div className={styles.restaurant_page}>
-      {ids.map((id) => (
+      {restaurantIds.map((restaurantId) => (
         <RestaurantTab
-          activated={id === activeId}
-          id={id}
-          key={id}
-          onClick={() => setActiveId(id)}
+          activated={restaurantId === activeRestaurantId}
+          id={restaurantId}
+          key={restaurantId}
+          onClick={() => setActiveRestaurantId(restaurantId)}
         />
       ))}
 
-      <Restaurant id={activeId} />
+      <Restaurant id={activeRestaurantId} />
     </div>
   );
 };

@@ -16,9 +16,9 @@ export const Reviews = ({ reviewIds }) => {
       <h3>Отзывы</h3>
 
       <ul className={styles.list}>
-        {reviewIds.map((id) => (
-          <li className={styles.item} key={id}>
-            <Review id={id} />
+        {reviewIds.map((reviewId) => (
+          <li className={styles.item} key={reviewId}>
+            <Review id={reviewId} />
           </li>
         ))}
       </ul>
