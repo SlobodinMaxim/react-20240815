@@ -3,18 +3,19 @@ import { Menu } from "./menu/menu";
 import { Reviews } from "./reviews/reviews";
 import styles from "./restaurant.module.css";
 import { useTheme } from "../../theme-context/use-theme";
+import { useSelector } from "react-redux";
+import { selectRestaurantById } from "../../../redux/entities/restaurants";
 
-export const Restaurant = ({ restaurant }) => {
+export const Restaurant = ({ id }) => {
+  const restaurant = useSelector((state) => selectRestaurantById(state, id));
   const { theme } = useTheme();
-
-  const menu = restaurant.menu;
-  const reviews = restaurant.reviews;
+  const { menu: dishIds, reviews: reviewIds } = restaurant;
 
   return (
     <div className={classNames(styles.root, styles[theme])}>
-      <Menu menu={menu} />
+      <Menu dishIds={dishIds} />
 
-      <Reviews reviews={reviews} />
+      <Reviews reviewIds={reviewIds} />
     </div>
   );
 };

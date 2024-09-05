@@ -1,8 +1,8 @@
 import { Button } from "../button/button";
 
-export const Tab = ({ disabled, name, onClick }) => {
+export const Tab = ({ activated, name, onClick }) => {
   return (
-    <Button disabled={disabled} displayType="tab" onClick={onClick}>
+    <Button disabled={activated} displayType="tab" onClick={onClick}>
       {name}
     </Button>
   );
