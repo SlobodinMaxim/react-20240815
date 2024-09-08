@@ -6,7 +6,7 @@ export const RestaurantTab = ({ activated, id, onClick }) => {
   const restaurant = useSelector((state) => selectRestaurantById(state, id));
 
   if (!restaurant) {
-    return null;
+    return <Tab activated={true} name="Tab" />;
   }
 
   return <Tab activated={activated} name={restaurant.name} onClick={onClick} />;

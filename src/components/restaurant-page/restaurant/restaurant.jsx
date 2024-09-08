@@ -9,6 +9,11 @@ import { selectRestaurantById } from "../../../redux/entities/restaurants";
 export const Restaurant = ({ id }) => {
   const restaurant = useSelector((state) => selectRestaurantById(state, id));
   const { theme } = useTheme();
+
+  if (!restaurant) {
+    return <div className={classNames(styles.root, styles[theme])}></div>;
+  }
+
   const { menu: dishIds, reviews: reviewIds } = restaurant;
 
   return (
