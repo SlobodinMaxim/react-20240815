@@ -1,33 +1,26 @@
 import { Dish } from "./dish/dish";
 import styles from "./menu.module.css";
 import { useRequest } from "../../../../redux/hooks/use-request";
-import { getDishes } from "../../../../redux/entities/dishes/get-dishes";
+import { getDishesByRestaurantId } from "../../../../redux/entities/dishes/get-dishes-by-restaurant-id";
 import {
-  FULFILLED,
-  IDLE,
   PENDING,
   REJECTED,
 } from "../../../../redux/entities/request/request-statuses";
-import { useEffect, useState } from "react";
-import { useLoader } from "../../../loader-context/use-loader";
+import { Loader } from "../../../loader/loader";
 
-export const Menu = ({ dishIds }) => {
-  const requestStatus = useRequest(getDishes);
-  const { hide, show } = useLoader();
+export const Menu = ({ dishIds, restaurantId }) => {
+  const requestStatus = useRequest(getDishesByRestaurantId, restaurantId);
 
-  const isLoading = requestStatus === IDLE || requestStatus === PENDING;
-  const isFulfilled = requestStatus === FULFILLED;
+  const isLoading = requestStatus === PENDING;
   const isError = requestStatus === REJECTED;
 
-  useEffect(() => {
-    if (isLoading) {
-      show();
-    }
+  if (isLoading) {
+    return <Loader />;
+  }
 
-    if (isError || isFulfilled) {
-      hide();
-    }
-  }, [isLoading, isFulfilled, isError]);
+  if (isError) {
+    return null;
+  }
 
   return (
     <div className={styles.root}>

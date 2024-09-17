@@ -1,5 +1,5 @@
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
-import { getReviews } from "./get-reviews";
+import { getReviewsByRestaurantId } from "./get-reviews-by-restaurant-id";
 
 const entityAdapter = createEntityAdapter();
 
@@ -12,8 +12,8 @@ export const reviewsSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(getReviews.fulfilled, (state, { payload }) => {
-                entityAdapter.setAll(state, payload);
+            .addCase(getReviewsByRestaurantId.fulfilled, (state, { payload }) => {
+                entityAdapter.setMany(state, payload);
             });
     }
 });

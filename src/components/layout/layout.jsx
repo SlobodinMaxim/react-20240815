@@ -17,8 +17,6 @@ export const Layout = ({ children }) => {
 
         <Footer className={styles.footer} />
       </div>
-
-      <Loader />
     </>
   );
 };

@@ -11,16 +11,16 @@ export const Restaurant = ({ id }) => {
   const { theme } = useTheme();
 
   if (!restaurant) {
-    return <div className={classNames(styles.root, styles[theme])}></div>;
+    return null;
   }
 
   const { menu: dishIds, reviews: reviewIds } = restaurant;
 
   return (
     <div className={classNames(styles.root, styles[theme])}>
-      <Menu dishIds={dishIds} />
+      <Menu dishIds={dishIds} restaurantId={id} />
 
-      <Reviews reviewIds={reviewIds} />
+      <Reviews restaurantId={id} reviewIds={reviewIds} />
     </div>
   );
 };
