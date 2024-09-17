@@ -4,7 +4,7 @@ import { RestaurantPage } from "./components/restaurant-page/restaurant-page.jsx
 import { ThemeContextProvider } from "./components/theme-context/theme-context-provider.jsx";
 import { AuthorizationContextProvider } from "./components/authorization-context/authorization-context-provider.jsx";
 import { Provider } from "react-redux";
-import { store } from "./redux/store.jsx";
+import { store } from "./redux/store.js";
 
 export const App = () => {
   return (

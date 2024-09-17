@@ -11,6 +11,10 @@ export const Dish = ({ id }) => {
   const { decrement, increment, value } = useCounter(0, 0, 5);
   const { isAuthorized } = user;
 
+  if (!dish) {
+    return null;
+  }
+
   return (
     <>
       <span className={styles.title}>{dish.name}</span>
